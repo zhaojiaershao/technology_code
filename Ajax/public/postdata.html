@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>账号：<input type="text" id="user"></p>
+    <p>密码：<input type="password" id="pass"></p>
+    <p><input type="button" value="post请求" id="but"></p>
+    <script>
+        let button = document.getElementById('but')
+
+        button.onclick = function () {
+            // 获取元素
+            let userid = document.getElementById('user')
+            let passid = document.getElementById('pass')
+            // 获取input输入值
+            let uservalue = userid.value
+            let passvalue = passid.value
+            // 拼接post请求参数
+            let params = 'user=' + uservalue + '&pass=' + passvalue
+            let xhr = new XMLHttpRequest()
+            xhr.open('post', 'http://localhost:3000/postdata')
+            // 设置请求参数格式的类型，【post方法必须设置】
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            // 把请求参数放在send方法中
+            xhr.send(params)
+            xhr.onload = function () {
+                if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 304)) {
+                    // 返回的数据
+                    console.log(xhr.responseText);
+                } else {
+                    alert()
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

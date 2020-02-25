@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        <input type="text" id="user">
+    </p>
+    <p>
+        <input type="text" id="pass">
+    </p>
+    <p>
+        <input type="button" value="get提交" id="but">
+    </p>
+    <div id="text"></div>
+    <script>
+        let but = document.querySelector('#but')
+        let userid = document.querySelector('#user')
+        let passid = document.querySelector('#pass')
+        but.addEventListener('click', function () {
+            let xhr = new XMLHttpRequest()
+            // 获取input输入的值
+            let userval = userid.value
+            let passval = passid.value
+            // 把请求参数拼接成字符串
+            let params = 'user=' + userval + '&pass=' + passval;
+            xhr.open('get', 'http://localhost:3000/getdata?' + params)
+            xhr.send()
+            xhr.onload = function () {
+                // 服务端返回的都是字符串对象，所以需要用JSON.parse()来解析字符串对象
+                let data = JSON.parse(xhr.responseText)
+                //渲染方法：
+                // 1. 返回的数据需要用拼接字符串来进行渲染
+                // 2. 创建元素，然后插入到指定元素中
+                let h1 = document.createElement('h1')
+                h1.innerText = data.msg
+                let text = document.getElementById('text')
+                text.appendChild(h1)
+            }
+        })
+    </script>
+</body>
+
+</html>
