@@ -1,13 +1,25 @@
-.container-fluid {
-    padding: 20px;
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
 }
 
-.box {
-    margin-bottom: 20px;
+.main {
+    margin: 0 auto;
+}
+
+.main .box {
+    width: 280px;
     float: left;
-    width: 220px;
+    padding: 25px;
 }
 
-.box img {
-    max-width: 100%
+.main .box img {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+
 }

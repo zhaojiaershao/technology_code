@@ -19,10 +19,12 @@
     </p>
     <div id="text"></div>
     <script>
+        // 获取元素
         let but = document.querySelector('#but')
         let userid = document.querySelector('#user')
         let passid = document.querySelector('#pass')
         but.addEventListener('click', function () {
+            // 创建ajax核心对象
             let xhr = new XMLHttpRequest()
             // 获取input输入的值
             let userval = userid.value

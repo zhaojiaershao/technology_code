@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="but"></div>
+    <script>
+        let timedate = function () {
+            let date = new Date()
+            let y = date.getFullYear() // 年份
+            let m = date.getMonth() //月份
+            let d = date.getDate() // 当前日
+            let h = date.getHours() // 当前小时
+            let M = date.getMinutes() //当前分
+            let S = date.getSeconds() //当前秒
+
+            let update = document.getElementById('but')
+            update.innerHTML = `${y}年${m}月${d}日${h}时${M}分${S}秒`
+        }
+        let time = setInterval(timedate, 100);
+    </script>
+</body>
+
+</html>

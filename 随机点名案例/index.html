@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = ['我是你爸爸', '宿赞港', '胖子', '小逼崽子', '慧慧', '火狐火', '谷歌', '艾玛', '苹果']
+        let randomdata = arrRandom(arr)
+        console.log(randomdata)
+
+        function arrRandom(arr) {
+            let text = ''
+            let r = Math.floor(Math.random() * arr.length)
+            text = arr[r]
+            return text
+        }
+    </script>
+</body>
+
+</html>

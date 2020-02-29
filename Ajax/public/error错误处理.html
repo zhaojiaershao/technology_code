@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 
+    ajax错误处理
+    1.网络畅通，服务器端能接收到请求，服务端返回的结果不是预期结果。
+    - 可以判断服务器返回的状态码，分别进行处理，xhr.status获取http状态码
+    2.网络畅通，服务器端没有接收到请求，返回404状态码
+    - 检查请求地址是否出错
+    3.网络畅通，服务器端能接受到请求，服务器端返回500状态码
+    - 服务器端错误，找到开发服务端人员进行沟通
+    4.网络中断，请求无法发送到服务器端
+    - 会出触发xhr对象下面的onerror事件，在onerror事件处理函数中对错误进行处理
+ -->
+
+<body>
+    <button id="but">ajax错误处理 get提交</button>
+    <script>
+        let but = document.getElementById('but')
+        but.onclick = function () {
+            let xhr = new XMLHttpRequest()
+            xhr.open('get', 'http://localhost:3000/err')
+            xhr.send()
+            xhr.onload = function () {
+                if (xhr.status === 400) {
+                    alert('请求出错')
+                }
+            }
+            // 当网络中断会触发一个onerror事件
+            xhr.onerror = function () {
+                alert('网络中断')
+            }
+        }
+    </script>
+</body>
+
+</html>

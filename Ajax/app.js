@@ -7,7 +7,8 @@ let bodyParser = require("body-parser");
 // 静态资源文件
 app.use(express.static(path.join("public")));
 
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded()); //请求头是 xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+app.use(bodyParser.json()); // xhr.setRequestHeader('Content-type', 'application/json');
 // get请求
 app.get("/getdata", (req, res) => {
   // get请求的参数在req.query中
@@ -18,12 +19,10 @@ app.get("/getdata", (req, res) => {
   let obj = {
     code: 1,
     msg: "ok",
-    data: [
-      {
-        name: "nihao",
-        age: 12
-      }
-    ]
+    data: [{
+      name: "nihao",
+      age: 12
+    }]
   };
   res.status(200).send(obj);
 });
@@ -35,6 +34,30 @@ app.post("/postdata", (req, res) => {
   // 向客户端返回请求的数据
   res.send(req.body);
 });
+
+// ajax错误处理
+app.get('/err', (req, res) => {
+  //console.log(xhr) ==>实验后端出错返回状态码500
+  res.status(400).send('err')
+})
+
+
+
+// 封装ajax使用 get
+app.get("/getAjax", (req, res) => {
+  // res.status(400).send('hello');
+  res.send({
+    name: 'huhu',
+    age: 12
+  });
+});
+
+// 封装ajax使用 post
+app.post("/postAjax", (req, res) => {
+  res.status(400).send('hello');
+});
+
+
 
 // 监听3000端口
 app.listen(3000);

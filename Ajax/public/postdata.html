@@ -21,14 +21,22 @@
             // 获取input输入值
             let uservalue = userid.value
             let passvalue = passid.value
-            // 拼接post请求参数
+            // 拼接post请求参数 【请求参数格式一】 
             let params = 'user=' + uservalue + '&pass=' + passvalue
+            // 创建ajax核心对象
             let xhr = new XMLHttpRequest()
             xhr.open('post', 'http://localhost:3000/postdata')
-            // 设置请求参数格式的类型，【post方法必须设置】
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            // 把请求参数放在send方法中
-            xhr.send(params)
+            // 设置请求参数格式的类型，【post方法必须设置】 【一】
+            // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+            // 通过请求头告诉服务端，客户端向服务端传递的请求参数的格式是什么【二】
+            xhr.setRequestHeader('Content-type', 'application/json');
+            // 再用post方法时，把请求参数放在send方法中
+            // xhr.send(params)
+            xhr.send(JSON.stringify({
+                name: 'hello',
+                age: 12
+            })) //【请求参数格式二】 
             xhr.onload = function () {
                 if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 304)) {
                     // 返回的数据

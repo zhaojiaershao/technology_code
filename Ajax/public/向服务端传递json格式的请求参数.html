@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>账号：<input type="text" id="user"></p>
+    <p>密码：<input type="password" id="pass"></p>
+    <p><input type="button" value="post请求" id="but"></p>
+    <script>
+        let button = document.getElementById('but')
+        button.addEventListener('click', function () {
+            // 获取元素
+            let userid = document.getElementById('user')
+            let passid = document.getElementById('pass')
+            // 获取input输入值
+            let uservalue = userid.value
+            let passvalue = passid.value
+            // 创建ajax核心对象
+            let xhr = new XMLHttpRequest()
+        })
+    </script>
+</body>
+
+</html>

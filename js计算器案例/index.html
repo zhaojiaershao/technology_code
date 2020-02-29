@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="iup">
+    </div>
+    <div>
+        <button onclick="addstr('+')">+</button>
+        <button onclick="addstr('-')">-</button>
+        <button>x</button>
+        <button>÷</button>
+    </div>
+    <div>
+        <button onclick="addstr(1)">1</button>
+        <button onclick="addstr(2)">2</button>
+    </div>
+    <div>
+        <button onclick="calc()">=</button>
+    </div>
+    <script>
+        function addstr(s) {
+            let inp = document.getElementById('iup')
+            //现在的值 = 原来的值+ 传进来的值
+            inp.value = inp.value + s
+        }
+
+        function calc() {
+            let inp = document.getElementById('iup')
+            // 把文本框里的值用javascript计算一下赋值给 val
+            val = eval(inp.value)
+            // 重新赋值给inp
+            inp.value = val
+
+        }
+    </script>
+</body>
+
+</html>

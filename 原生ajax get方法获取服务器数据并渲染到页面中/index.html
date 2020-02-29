@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 700px;
+            margin: 0 auto;
+        }
+
+        tr {
+            height: 40px;
+        }
+
+        td {
+            border: 1px solid black;
+            font-size: 20;
+            text-align: center;
+        }
+
+        img {
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>获取数据</button>
+    <table>
+        <tr>
+            <td>编号</td>
+            <td>login</td>
+            <td>头像</td>
+            <td>备注</td>
+        </tr>
+        <tbody id="mytbody">
+        </tbody>
+    </table>
+    <script>
+        let but = document.querySelector('button')
+        let mytbody = document.getElementById('mytbody')
+        but.addEventListener('click', function () {
+            // 发送ajax
+            let xhr = new XMLHttpRequest()
+            xhr.open('get', 'https://api.github.com/users')
+            xhr.send()
+            xhr.onreadystatechange = function () {
+                if (xhr.status == 200 && xhr.readyState == 4) {
+                    // 需要把字符串对象传成对象
+                    let data = JSON.parse(xhr.responseText)
+                    // 声明一个空变量
+                    let html = ''
+                    // for循环遍历
+                    for (var i = 0; i < data.length; i++) {
+                        let reslt = data[i]
+                        html += `<tr>
+                            <td>${reslt.id}</td><td>${reslt.login}</td><td><img src='${reslt
+                            .avatar_url}'/></td><td>${reslt.site_admin}</td>
+                        </tr>`
+                    }
+                    mytbody.innerHTML = html
+                    let trs = document.querySelectorAll('tr')
+                    for (var j = 0; j < trs.length; j++) {
+                        trs[j].onmouseover = function () {
+                            // 把所有的tr背景颜色置空
+                            for (let j = 0; j < trs.length; j++) {
+                                trs[j].style.background = ''
+                            }
+                            // 把当前的元素添加上背景颜色
+                            this.style.background = 'red'
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
