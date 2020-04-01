@@ -1,0 +1,146 @@
+.map{
+    display: flex;
+    justify-content: center;
+}
+.map_style{
+    width: 800px !important;
+    height: 400px !important;
+    margin-bottom: 100px !important;
+}
+/*公共 头部背景图 */
+.header{
+    width: 100%;
+    margin: auto;
+}
+.style_top__1VCSg {
+    background: url('https://cdn.xieyezi.com/nvov.jpg') no-repeat;
+    height: 250px;
+    width: 100%;
+    background-size: cover;
+    text-align: center;
+}
+.style_title__aPjei {
+    font-size: 30px;
+    color: #fff;
+    font-weight: 500;
+    padding-top: 5%;
+}
+.style_tip__1aBrD {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 400;
+}
+/* 疫情地图 */
+/* 头部tab页 */
+.ant-tabs-nav-animated{
+    width: 100%;
+}
+
+.ant-tabs-nav div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+} 
+.ant-tabs-tab{
+    text-align: center;
+    margin: 0 !important;
+}
+
+/* 时间 */
+.date{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 20px 0;
+}
+.date .country{
+    display: block;
+    font-size: 14px;
+    color: #fff;
+    background: #6c63ff;
+}
+.date .newdate{
+    display: block;
+    font-size: 14px;
+    font-size: 14px;
+    color: grey;
+}
+
+
+/* list */
+.day{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px auto;
+}
+.action{
+    width: 160px;
+    height: 80px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 22px;
+}
+.action p {
+    color: grey;
+}
+.confirm p span{
+    color: rgb(229, 116, 113);
+}
+.suspected p span{
+    color: rgb(221, 164, 81);
+}
+.serious p span{
+    color: rgb(93, 64, 55);
+}
+.dead p span{
+    color: rgb(145, 147, 153);
+}
+.cured p span{
+    color: rgb(126, 190, 80);
+}
+/*  最新消息*/
+.trend{
+    width: 90%;
+    margin: 0 auto;
+}
+.ant-timeline-item{
+    margin-bottom: 20px;
+}
+.region{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 辟谣信息 */
+
+.rumor{
+    width: 90%;
+    margin: auto;
+}
+.ant-card{
+    margin-bottom: 20px;
+}
+.ant-card-cover img{
+    width: 100%;
+    height: 200px;
+}
+.rumor_title{
+    position: relative;
+}
+.rumor_title .rumor_img{
+    position: absolute;
+    left: 200px;
+    top: 40px;
+    width: 130px;
+    height: 130px;
+}
+
+/* 疫情地图列表 */
+.list_list2{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 47px;
+    margin-right:190px ;
+}

@@ -54,10 +54,8 @@
                 success: function () {},
                 error: function () {}
             }
-
             // 使用options对象中的属性覆盖defauls对象中的属性
             Object.assign(defaults, options)
-
             // 创建ajax对象
             let xhr = new XMLHttpRequest()
             // 拼接请求参数的变量
@@ -95,7 +93,6 @@
                 // 发送请求
                 xhr.send()
             }
-
             // 监听xhr对象下面的onloand事件
             // 当xhr对象接收完响应数据后触发
             xhr.onload = function () {
@@ -106,10 +103,8 @@
                 if (contentType.includes('application/json')) {
                     responseText = JSON.parse(responseText)
                 }
-
                 // 当http状态码等于200的时候
                 if (xhr.status == 200) {
-
                     // 请求成功 调用处理成功情况的函数
                     defaults.success(responseText, xhr)
                 } else {

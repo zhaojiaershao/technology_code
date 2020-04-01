@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js-防抖</title>
+</head>
+
+<body>
+    <button id="app" style="width: 200px;height: 50px;">每次点击2秒后执行一次</button>
+    <script>
+        // 这里使用了闭包 
+        function debounce(fu, deply) {
+            var time = null
+            return function () {
+                if (time) {
+                    clearTimeout(time)
+                    time = setTimeout(fn, deply)
+                } else {
+                    time = setTimeout(fn, deply)
+                }
+            }
+        }
+        function fn() {
+            console.log('成功')
+        }
+        app.onclick = debounce(fn, 2000)
+    </script>
+</body>
+
+</html>
